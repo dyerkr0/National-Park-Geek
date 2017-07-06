@@ -1,0 +1,23 @@
+#header-logo {
+	width: 350px;
+}
+
+nav ul {
+	width: 100%;
+}
+
+nav ul li {
+	float: left;
+	list-style: none;
+	width: 100px;
+	padding-top: 5px;
+	background-color: gray;
+}
+
+#park-pic {
+	width: 150px;
+}
+
+#weather-img {
+	width:50px;
+}
