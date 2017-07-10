@@ -2,22 +2,81 @@
 	width: 350px;
 }
 
-nav ul {
+header {
+	background-color: #C6ECFC;
+}
+
+body {
+	background-color: #8BE0A7;
+	
+}
+
+#nav {
+	height: 20px;
 	width: 100%;
+	
 }
 
 nav ul li {
 	float: left;
 	list-style: none;
 	width: 100px;
-	padding-top: 5px;
-	background-color: gray;
+	padding: 0px 0px 5px 0px;
+	
+}
+
+nav ul li a {
+	text-decoration: none;
+	
+}
+
+a:hover  {
+	font-weight: bold;
+	
 }
 
 #park-pic {
+	float: left;
 	width: 150px;
+	padding-right: 10px;
 }
 
 #weather-img {
 	width:50px;
+	border-radius: 50%;
+}
+
+#daily-weather-block {
+	width: 100%;
+	display: inline-block;
+}
+
+td {
+	padding 5px;
+}
+
+#today-weather-img {
+	width:200px;
+	border-radius: 50%;
+}
+
+#today-weather {
+	float: left;
+	width: 250px;
+	display: inline-block;
+}
+
+#other-weather {
+	
+	display: inline-block;
+}
+
+#park-info {
+	float: left;
+	padding: 10px;
+}
+
+h4 {
+	padding: 0px;
+	margin: 0px;
 }

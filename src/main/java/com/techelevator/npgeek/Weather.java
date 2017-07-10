@@ -1,5 +1,6 @@
 package com.techelevator.npgeek;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Weather {
@@ -9,7 +10,6 @@ public class Weather {
 	private int low;
 	private int high;
 	private String forecast;
-	private List<String> advisories;
 	
 	public String getParkCode() {
 		return parkCode;
@@ -44,56 +44,39 @@ public class Weather {
 		this.forecast = forecast;
 	}
 
-//	public void setAdvisories(){
-//		
-//		String tempAdvisory = calculateTemperatureAdvisories();
-//		String forecastAdvisory = calculateForecastAdvisories();
-//		
-//		if(!(tempAdvisory.isEmpty() && tempAdvisory.equals(null)) && !(forecastAdvisory.isEmpty() && forecastAdvisory.equals(null))){
-//			advisories.add(forecastAdvisory);
-//			advisories.add(tempAdvisory);
-//		} else if (!(tempAdvisory.isEmpty() && tempAdvisory.equals(null))) {
-//			advisories.add(tempAdvisory);
-//		} else if (!(forecastAdvisory.isEmpty() && forecastAdvisory.equals(null))) {
-//			advisories.add(forecastAdvisory);
-//		} 
-//		
-//	}
-//	
-//	public List<String> getAdvisories(){
-//		return advisories;
-//	}
-//	
-////	public String calculateTemperatureAdvisories(){
-////		
-////		String advisory = null;
-////		
-////		if(high > 75){
-////			advisory = "Bring an extra gallon of water!";
-////		} else if ((high - low) > 20) {
-////			advisory = "Wear breathable layers!";
-////		} else if (low < 20) {
-////			advisory = "Don't expose yourself to frigid temperatures!";
-////		} 
-////		
-////		return advisory;
-////	}
-//	
-//	public String calculateForecastAdvisories(){
-//		
-//		String advisory = null;
-//		
-//		if(forecast.equals("snow")){
-//			advisory = "Pack snowshoes!";
-//		} else if (forecast.equals("rain")) {
-//			advisory = "Pack rain gear and wear waterproof shoes!";
-//		} else if (forecast.equals("thunderstorms")) {
-//			advisory = "Seek shelter and avoid hiking on exposed ridges!";
-//		} else if (forecast.equals("sunny")) {
-//			advisory = "Pack sunblock!";
-//		} 
-//		
-//		return advisory;
-//	}
+
+	public List<String> getAdvisories(){
+		List<String> advisories = new ArrayList<String>();
+		
+		if(high > 75){
+			advisories.add("Bring an extra gallon of water!");
+		} 
+		
+		if ((high - low) > 20) {
+			advisories.add("Wear breathable layers!");
+		}
+		
+		if (low < 20) {
+			advisories.add("Don't expose yourself to frigid temperatures!");
+		} 
+
+		if(forecast.equals("snow")){
+			advisories.add("Pack snowshoes!");
+		}
 	
+		if (forecast.equals("rain")) {
+			advisories.add("Pack rain gear and wear waterproof shoes!");
+		}  
+		
+		if (forecast.equals("thunderstorms")) {
+			advisories.add("Seek shelter and avoid hiking on exposed ridges!");
+		} 
+		
+		if (forecast.equals("sunny")) {
+			advisories.add("Pack sunblock!");
+		} 
+		
+		return advisories;
+	}
+
 }

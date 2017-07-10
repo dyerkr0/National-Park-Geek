@@ -17,6 +17,7 @@ public class Park {
 	private int entryFee;
 	private int numberOfAnimalSpecies;
 	private String imageName;
+	private int count;
 	
 	public String getParkCode() {
 		return parkCode;
@@ -115,6 +116,14 @@ public class Park {
 	
 	public void setImageName(){
 		imageName =  "/img/parks/" + parkCode.toLowerCase() + ".jpg";
+	}
+	
+	public void setCount(int count){
+		this.count = count;
+	}
+	
+	public int getCount(){
+		return count;
 	}
 
 }

@@ -19,7 +19,7 @@
         		<img id="header-logo" src="${logo}" alt="National Park Geek logo" />
        	    </a>
        	    
-       	    <nav>
+       	    <nav id="nav">
        	    	<ul>
        	    		<li><a href="${homePage}">Home</a></li>
        	    		<li><a href="${surveyInput}">Survey</a></li>

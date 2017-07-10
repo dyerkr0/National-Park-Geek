@@ -43,6 +43,38 @@ public class JdbcParkDao implements ParkDao {
 		return park;
 	}
 	
+	@Override
+	public Park getParkByParkName(String parkName) {
+		Park park = null;
+		String sqlGetParkByParkCode = "SELECT * FROM park WHERE parkName = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetParkByParkCode, parkName);
+		if(results.next()) {
+			park = mapRowToPark(results);
+		}
+		
+		return park;
+	}
+
+	@Override
+	public List<Park> getTopParks() {
+		List<Park> topParks = new ArrayList<Park>();
+		
+		String sqlGetTopSurveys =  "SELECT survey_result.parkcode, park.*, COUNT(survey_result.parkcode) as count FROM survey_result " +
+								   "JOIN park ON park.parkCode = survey_result.parkcode " +
+								   "GROUP BY survey_result.parkcode, park.parkCode " +
+								   "ORDER BY count desc, survey_result.parkcode "+
+								   "LIMIT 5";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTopSurveys);
+		while(results.next()){
+			Park park = mapRowToPark(results);
+			park.setCount(results.getInt("count"));
+			topParks.add(park);
+		}
+		
+		return topParks;
+	}
+
+	
 	private Park mapRowToPark(SqlRowSet results) {
 		Park park = new Park();
 		
